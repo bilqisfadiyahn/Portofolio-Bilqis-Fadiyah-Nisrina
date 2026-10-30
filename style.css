@@ -1,0 +1,302 @@
+/* RESET & THEME VARIABLES */
+:root {
+    --bg-dark: #0a0e1a;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --glass-hover: rgba(255, 255, 255, 0.08);
+    --primary-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    --accent-blue: #38bdf8;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+    font-family: var(--font-family); 
+    background-color: var(--bg-dark); 
+    color: var(--text-main); 
+}
+
+body { 
+    overflow-x: hidden; 
+    position: relative; 
+    line-height: 1.6; 
+}
+
+/* Background Ambient Glow */
+.glow-bg { 
+    position: absolute; 
+    width: 450px; 
+    height: 450px; 
+    filter: blur(140px); 
+    border-radius: 50%; 
+    z-index: -1; 
+    opacity: 0.35; 
+}
+.blob-1 { top: -80px; left: -100px; background: #8b5cf6; }
+.blob-2 { top: 600px; right: -100px; background: #0284c7; }
+
+/* Global Utilities */
+.glass { 
+    background: var(--card-bg); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px); 
+    border: 1px solid var(--card-border); 
+    border-radius: 20px; 
+}
+.highlight { 
+    background: var(--primary-grad); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+.container { 
+    max-width: 1140px; 
+    margin: 0 auto; 
+    padding: 0 24px; 
+}
+
+/* PENGATUR POSISI SCROLL (JARAK ATAS DIPOTONG SETENGAHNYA) */
+section {
+    scroll-margin-top: 95px; /* Dipotong setengahnya dari jarak sebelumnya */
+}
+
+.section-padding { 
+    padding: 20px 0 60px 0;  /* Ruang padding atas-bawah dibuat pas & seimbang */
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+
+/* NAVBAR */
+.navbar-wrapper { 
+    position: fixed; 
+    top: 20px; 
+    left: 0; 
+    width: 100%; 
+    z-index: 999; 
+    padding: 0 24px; 
+}
+.navbar { 
+    max-width: 1050px; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 12px 28px; 
+    border-radius: 50px; 
+}
+.logo-text { font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; }
+.logo-text span { color: #c084fc; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--text-main); }
+
+/* BUTTONS */
+.btn-primary { 
+    background: var(--primary-grad); 
+    color: #fff; 
+    border: none; 
+    padding: 12px 24px; 
+    border-radius: 50px; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    cursor: pointer; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.35); 
+    transition: transform 0.2s; 
+}
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-secondary { 
+    background: rgba(255, 255, 255, 0.08); 
+    color: #fff; 
+    border: 1px solid var(--card-border); 
+    padding: 12px 24px; 
+    border-radius: 50px; 
+    font-weight: 600; 
+    text-decoration: none; 
+    transition: background 0.3s; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.15); }
+.btn-lg { padding: 14px 28px; font-size: 0.95rem; }
+
+/* HERO SECTION & FOTO PROFIL */
+.hero-section { 
+    padding-top: 115px; 
+    padding-bottom: 50px; 
+}
+
+.hero-container { 
+    display: grid; 
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 40px; 
+    align-items: center; 
+}
+
+.badge { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    padding: 6px 16px; 
+    border-radius: 30px; 
+    background: rgba(34, 197, 94, 0.15); 
+    border: 1px solid rgba(34, 197, 94, 0.3); 
+    color: #4ade80; 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    margin-bottom: 20px; 
+}
+.hero-title { font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+.hero-subtitle { font-size: 1.05rem; color: #c084fc; font-weight: 600; margin-bottom: 16px; }
+.hero-desc { color: var(--text-muted); margin-bottom: 28px; max-width: 580px; font-size: 0.95rem; }
+.hero-btns { display: flex; gap: 14px; }
+
+/* Profile Card & Frame Foto Bulat Pas */
+.profile-card { padding: 28px; }
+
+.avatar-wrapper { 
+    width: 140px; 
+    height: 140px; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin: 0 auto 16px; 
+    border: 2px solid #ffffff; 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.avatar-wrapper img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center 15%; 
+}
+
+.profile-card h4 { margin-bottom: 16px; font-size: 1.1rem; }
+.profile-list { list-style: none; }
+.profile-list li { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.profile-list i { color: #c084fc; width: 16px; }
+
+/* SECTIONS, CARDS & SKILLS */
+.section-header {
+    margin-bottom: 24px;
+}
+
+.section-header h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+.section-header p { color: var(--text-muted); max-width: 750px; margin: 0 auto 24px; font-size: 0.95rem; }
+
+/* Sub-title / Label Atas Judul */
+.sub-title { 
+    font-size: 0.8rem; 
+    letter-spacing: 2px; 
+    color: var(--accent-blue); 
+    font-weight: 700; 
+    display: block; 
+    margin-bottom: 4px; 
+    text-transform: uppercase;
+}
+
+.glass-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px; }
+
+/* Education & Organization */
+.edu-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.edu-header h3 { font-size: 1.3rem; }
+.degree { color: #c084fc; font-weight: 600; font-size: 1rem; }
+.edu-date { font-size: 0.85rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--card-border); }
+.card-hr { border: none; border-top: 1px solid var(--card-border); margin: 16px 0; }
+.rel-title { font-size: 0.9rem; margin-bottom: 10px; }
+
+/* Skills Grid */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.skills-grid h4 { font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; color: #f8fafc; }
+.skills-grid h4 i { color: #c084fc; }
+.skills-grid p { font-size: 0.82rem; color: var(--text-muted); }
+
+.skill-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.skill-chips span { background: rgba(255, 255, 255, 0.08); padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.05); }
+
+/* Projects Vertical Grid */
+.projects-grid-vertical { display: flex; flex-direction: column; gap: 20px; }
+.project-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.project-date { font-size: 0.82rem; color: var(--text-muted); }
+.project-card h3 { font-size: 1.25rem; margin-bottom: 4px; }
+.course-name { font-size: 0.85rem; color: #c084fc; font-weight: 500; margin-bottom: 14px; }
+.project-bullets { list-style: disc; margin-left: 20px; margin-bottom: 16px; color: var(--text-muted); font-size: 0.9rem; }
+.project-bullets li { margin-bottom: 6px; }
+
+.tag-badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 600; display: inline-block; }
+.tag-badge.green { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+.tag-badge.blue { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+.tag-badge.purple { background: rgba(192, 132, 252, 0.2); color: #c084fc; }
+
+/* SERTIFIKASI GRID & MODAL */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.cert-card { cursor: pointer; transition: transform 0.3s; padding: 18px; }
+.cert-card:hover { transform: translateY(-5px); background: var(--glass-hover); }
+.cert-img-wrapper { position: relative; width: 100%; height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 14px; background: #111827; }
+.cert-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.cert-card:hover .cert-img-wrapper img { transform: scale(1.05); }
+.cert-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.65); display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; font-size: 0.85rem; font-weight: 600; opacity: 0; transition: opacity 0.3s; }
+.cert-card:hover .cert-overlay { opacity: 1; }
+.cert-info h4 { font-size: 1.05rem; margin-bottom: 4px; }
+.cert-info .issuer { font-size: 0.82rem; color: #c084fc; font-weight: 600; margin-bottom: 8px; }
+.cert-info .cert-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Modal Lightbox Foto Zoom */
+.img-modal { display: none; position: fixed; z-index: 9999; inset: 0; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+.modal-content { max-width: 85%; max-height: 85vh; border-radius: 12px; border: 1px solid var(--card-border); }
+.close-modal { position: absolute; top: 25px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+
+/* FOOTER / HUBUNGI SAYA */
+.footer { padding: 60px 0 40px; background-color: var(--bg-dark); }
+.footer-content { max-width: 800px; margin: 0 auto; }
+.footer-title { font-size: 2.3rem; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin-bottom: 20px; }
+.footer-desc { color: #94a3b8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 36px; }
+
+.social-btns-group { display: flex; justify-content: center; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
+.btn-social { 
+    background: rgba(255, 255, 255, 0.04); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    color: #ffffff; 
+    padding: 12px 28px; 
+    border-radius: 12px; 
+    font-size: 0.95rem; 
+    font-weight: 600; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px; 
+    transition: all 0.3s ease; 
+}
+.btn-social:hover { 
+    background: rgba(255, 255, 255, 0.09); 
+    transform: translateY(-2px); 
+    border-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* Warna Ikon Tombol Sosial Media */
+.icon-email { color: #2dd4bf; }
+.icon-linkedin { color: #38bdf8; }
+.icon-github { color: #2dd4bf; }
+
+.footer-hr { border: none; border-top: 1px solid rgba(255, 255, 255, 0.08); margin-bottom: 28px; }
+.copyright { color: #f8fafc; font-size: 0.95rem; font-weight: 500; }
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 900px) {
+    .hero-container, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
+    .edu-header { flex-direction: column; gap: 8px; }
+    .hero-title { font-size: 2rem; }
+    .nav-links { display: none; }
+}
